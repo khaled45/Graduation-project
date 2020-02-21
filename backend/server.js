@@ -9,8 +9,6 @@ var DBconnection = require('./DBconnction')
 var app = express()
 
 app.use(express.json())
-app.use(express.static('./public'));
-app.use(cookieParser())
 app.use(session({
     genid: uuid,
     secret: 'mysecret'
@@ -19,19 +17,21 @@ app.use(session({
 app.use(
     cors({
         origin: ' http://localhost:4200',
-        credentials: true
+        credentials: true,
+        maxAge: 1000000
     })
 
 )
 
-
 app.use(authenticate)
+
+
 
 DBconnection()
 
 function authenticate(req, resp, next) {
 
-    if (req.url === '/doctorsignup' || req.url === '/doctorsignin' || req.url === '/patientsignup' || req.url === '/patientsignin') {
+    if (req.url === '/doctorsignup' || req.url === '/doctorsignin' || req.url === '/patientsignup' || req.url === '/patientsignin' || req.url === '/getdoctorsData' || req.url === '/getdoctorsById') {
         next()
     } else {
         if (req.session.user && req.cookies["connect.sid"]) {

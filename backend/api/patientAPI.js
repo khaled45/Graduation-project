@@ -1,60 +1,26 @@
-const multer = require('multer');
 var mongoose = require('mongoose')
 var patientModel = require('../models/patientModel')
 var doctorModel = require('../models/doctorModel')
 
 
 
-const storage = multer.diskStorage({
-    destination: './public/uploads/',
-    filename: function (req, file, cb) {
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-    }
-});
-// Init Upload
-const upload = multer({
-    storage: storage,
-    limits: { fileSize: 1000000 },
-    fileFilter: function (req, file, cb) {
-        checkFileType(file, cb);
-    }
-}).single('myImage');
-
-// Check File Type
-function checkFileType(file, cb) {
-    // Allowed ext
-    const filetypes = /jpeg|jpg|png|gif/;
-    // Check ext
-    const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-    // Check mime
-    const mimetype = filetypes.test(file.mimetype);
-
-    if (mimetype && extname) {
-        return cb(null, true);
-    } else {
-        cb('Error: Images Only!');
-    }
-}
-
-
 function patientAPI(app) {
 
     app.post("/patientsignup", (req, resp) => {
 
-        const { name, username, password, diagnoses_form, doctorID } = req.body
+        const { name, username, password, doctorID } = req.body
 
         let p1 = new patientModel({
             _id: mongoose.Types.ObjectId(),
             name,
             username,
             password,
-            diagnoses_form,
             doctorID
 
         })
 
         p1.save((err, data) => {
-            
+
             doctorModel.findOne({ _id: doctorID }).exec((err, doctordata) => {
                 doctordata.patientID.push(data._id)
                 doctordata.save()
@@ -100,6 +66,20 @@ function patientAPI(app) {
         })
     })
 
+
+    app.post('/fillDiagnosisForm', (req, resp) => {
+
+        const { _id, diagnoses_form } = req.body
+        patientModel.findOne({ _id }).exec((err, Patientdata) => {
+            Patientdata.diagnoses_form.push(diagnoses_form)
+            Patientdata.save((err,data)=>{
+ 
+                err ? resp.json({ message: 'error' }) : resp.json({ message: 'success', data })
+
+            })
+        })
+
+    })
 
 
 

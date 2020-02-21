@@ -1,0 +1,34 @@
+<div class="media">
+    <img src="" class="mr-3" alt="...">
+    <div class="media-body">
+        <h4 class="mt-0">Name : {{DData.name}}</h4>
+        <h5 class="mt-0">username : {{DData.username}}</h5>
+        <h5 class="mt-0">location : {{DData.location}}</h5>
+        <button class="btn btn-primary" (click)='showModal = true' data-toggle="modal">Show Form</button>
+
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" [ngClass]="{'show': showModal}" data-backdrop="static" tabindex="-1"
+    role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <button type="button" class="close" (click)='showModal = false' data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" *ngFor="let q of DoctorQST">
+                <h4>{{q}}</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)='showModal = false'
+                    data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success">submit</button>
+            </div>
+        </div>
+    </div>
+</div>

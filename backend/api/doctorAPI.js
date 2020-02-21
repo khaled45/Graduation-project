@@ -2,22 +2,24 @@ var mongoose = require('mongoose')
 var doctorModel = require('../models/doctorModel')
 var patientModel = require('../models/patientModel')
 
+
+// Multer File upload settings
+
 function doctorAPI(app) {
 
-    app.post("/doctorsignup", (req, resp) => {
+    app.post("/doctorsignup" , (req, resp) => {
 
-        const { name, username, password, location, Medical_form } = req.body
-
+        const { name, username, password, location, questions } = req.body
         const d1 = new doctorModel({
             _id: mongoose.Types.ObjectId(),
             name,
             username,
             password,
-            Medical_form,
+            questions,
             location,
         })
-
         d1.save((err, data) => {
+            debugger
             err ? resp.json({ message: 'error' }) : resp.json({ message: 'success', data })
         })
     });
