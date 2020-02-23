@@ -6,6 +6,7 @@ let doctorModel = new mongoose.model('Doctor', {
     username: { type: String },
     password: String,
     location: String,
+    avatar: { type: Array },
     questions: [],
     patientID: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Patient' }]
 })

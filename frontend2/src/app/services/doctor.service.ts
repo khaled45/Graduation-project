@@ -52,4 +52,12 @@ export class doctorService {
 
     }
 
+    uploadDImage(data) {
+        return this.myHttpClient.post(this.backendApiUrl + 'uploadDImage', data, { withCredentials: true })
+    }
+
+    getDImageProfile() {
+        return this.myHttpClient.get(this.backendApiUrl + 'getDImageProfile', { withCredentials: true })
+
+    }
 }

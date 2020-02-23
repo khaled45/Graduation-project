@@ -26,6 +26,7 @@ export class DProfileComponent implements OnInit {
 
 
 
+
   getDoctorProfile() {
     let id = this.DId
 
@@ -49,7 +50,6 @@ export class DProfileComponent implements OnInit {
 
 
   }
-
 
 
 }

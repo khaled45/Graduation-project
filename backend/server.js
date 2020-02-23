@@ -8,12 +8,32 @@ var patientApi = require('./api/patientAPI')
 var DBconnection = require('./DBconnction')
 var app = express()
 
+
+
+function authenticate(req, resp, next) {
+
+    if (req.url === '/doctorsignup' || req.url === '/doctorsignin' || req.url === '/patientsignup' || req.url === '/patientsignin'  ) {
+        next()
+    } else {
+        
+        if (req.session.user && req.cookies["connect.sid"]) {
+            next()
+        } else {
+            resp.json('authentication failed')
+        }
+
+
+    }
+
+}
+
+
 app.use(express.json())
 app.use(session({
     genid: uuid,
     secret: 'mysecret'
 }))
-
+app.use(cookieParser());
 app.use(
     cors({
         origin: ' http://localhost:4200',
@@ -26,32 +46,12 @@ app.use(
 app.use(authenticate)
 
 
-
 DBconnection()
 
-function authenticate(req, resp, next) {
-
-    if (req.url === '/doctorsignup' || req.url === '/doctorsignin' || req.url === '/patientsignup' || req.url === '/patientsignin' || req.url === '/getdoctorsData' || req.url === '/getdoctorsById') {
-        next()
-    } else {
-        if (req.session.user && req.cookies["connect.sid"]) {
-            next()
-        } else {
-            resp.json('authentication failed')
-        }
-
-
-    }
-
-}
 
 doctorApi(app)
 patientApi(app)
 
-app.get('/', (req, resp) => {
-    resp.json({ message: "server on port 8085" })
-
-})
 
 
 app.listen(8085);
