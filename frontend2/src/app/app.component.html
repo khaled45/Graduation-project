@@ -4,15 +4,16 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="#">Navbar</a>
-
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" [routerLink]="['/home']" routerLinkActive="router-link-active" >Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a (click)="onCreate()" ><i class="far fa-bell btn-primary my-2" style="cursor: pointer;"></i></a>
             </li>
+
+
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -24,11 +25,6 @@
 <router-outlet></router-outlet>
 
 
-<ul>
-    <li class="text" *ngFor="let item of items | async">
-        {{item.name}}
-    </li>
-</ul>
 
 <!-- <div id="sticky-footer" class="py-2 bg-dark text-white-50 fixed-bottom">
     <div class="container text-center">

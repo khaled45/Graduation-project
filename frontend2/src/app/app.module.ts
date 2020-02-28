@@ -24,7 +24,9 @@ import { DProfileComponent } from './dprofile/dprofile.component';
 import { DsigninComponent } from './dsignin/dsignin.component';
 import { TourismComponent } from './tourism/tourism.component';
 import { TourProfileComponent } from './tour-profile/tour-profile.component';
-import { environment } from 'src/environments/environment';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,9 +71,12 @@ import { environment } from 'src/environments/environment';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatExpansionModule,
+    MatDialogModule,
+    MatIconModule,
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [TreatmentPlanComponent]
 })
 export class AppModule { }

@@ -136,7 +136,7 @@ function doctorAPI(app) {
 
     app.get('/getDImageProfile', (req, resp) => {
         const { _id } = req.session.user
-
+        
         doctorModel.findOne({ _id }).exec((err, data) => {
             const imageProfile = data.avatar[0].fileDest
             err ? resp.json({ message: 'error' }) : resp.json({ message: 'success', imageProfile })

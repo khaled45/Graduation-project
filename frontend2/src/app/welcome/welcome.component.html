@@ -1,6 +1,36 @@
-<div class="container text-center my-5 py-5">
-    <button mat-raised-button color="primary" [routerLink]="['/home']">Find Doctors </button>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+
+            <div class="container text-center my-5 py-5">
+                <button mat-raised-button color="primary" [routerLink]="['/home']">Find Doctors </button>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+
+            <div class="container text-center my-5 py-5">
+                <button mat-raised-button color="primary" [routerLink]="['/DsignUp']">signUP as Doctors </button>
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="container text-center my-5 py-5">
+                <button mat-raised-button color="primary" [routerLink]="['/DsignIn']">login as Doctors </button>
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
+
+
+
+
+
 
 
 <!-- <input type='file' (change)="onselectedfile($event)" />
@@ -20,11 +50,6 @@
     </form>
 </div>
 
-
-<input [(ngModel)]="username" />
-<input [(ngModel)]="password" />
-
-<button mat-raised-button color="secondary" (click)='signin()'> signin</button>
 
 <button (click)="getimageprofile()">show</button>
 <img [src]="imageprofile">

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { doctorService } from '../services/doctor.service'
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -9,17 +10,15 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
-  
-  constructor(public mydoctorService: doctorService, public myRouter: Router) { }
+
+  constructor(public mydoctorService: doctorService, public myRouter: Router, private myFormBuilder: FormBuilder) { }
 
   ngOnInit() {
   }
 
-
   public questions: any[] = [{
     question: '',
   }];
-
 
 
   name: any = ''
@@ -38,7 +37,7 @@ export class SignupComponent implements OnInit {
 
         if (resp.message == "success") {
           debugger
-          this.myRouter.navigate(['/doctorprofile'])
+          this.myRouter.navigate(['/dashboard', resp.data._id])
         } else {
           alert('response error')
         }
@@ -51,20 +50,20 @@ export class SignupComponent implements OnInit {
 
 
 
-    addQST() {
-      this.questions.push({
-        question: '',
-      });
-    }
+  addQST() {
+    this.questions.push({
+      question: '',
+    });
+  }
 
-    removeQST(i: number) {
-      this.questions.splice(i, 1);
-    }
+  removeQST(i: number) {
+    this.questions.splice(i, 1);
+  }
 
-    logValue() {
-      debugger
-      console.log(this.questions);
-    }
+  logValue() {
+    debugger
+    console.log(this.questions);
+  }
 
 
 

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { doctorService } from '../services/doctor.service';
 
 @Component({
@@ -13,11 +12,11 @@ export class WelcomeComponent implements OnInit {
   multipleImages = [];
   username: any
   password: any
-  imageprofile:any
-  constructor(private mydoctorService: doctorService) { }
+  imageprofile: any
+  constructor(private mydoctorService: doctorService, ) { }
 
   ngOnInit() {
-    
+
   }
 
 
@@ -39,32 +38,15 @@ export class WelcomeComponent implements OnInit {
   }
 
 
-  signin() {
-    const { username, password } = this
-    if (username && password) {
-      this.mydoctorService.signin({
-        username, password
-      }).subscribe((response: any) => {
-
-        if (response.message === 'success') {
-          console.log(response.message)
-        } else {
-          alert('error in response')
-        }
-      })
-
-    }
-    else {
-      alert("please complete your signin..")
-    }
-  }
-
-
   getimageprofile() {
     this.mydoctorService.getDImageProfile().subscribe((resp: any) => {
-    
+      debugger
       this.imageprofile = resp.imageProfile
     })
   }
+
+
+
+  
 
 }
