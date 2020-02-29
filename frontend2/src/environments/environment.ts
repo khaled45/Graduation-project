@@ -4,16 +4,16 @@
 
 export const environment = {
   production: false,
+  
   firebaseConfig: {
-
-    apiKey: "AIzaSyBYML6jgzveB3dac9uzMxkImZpJKCC87Ks",
-    authDomain: "graduation-pro-2e869.firebaseapp.com",
-    databaseURL: "https://graduation-pro-2e869.firebaseio.com",
-    projectId: "graduation-pro-2e869",
-    storageBucket: "graduation-pro-2e869.appspot.com",
-    messagingSenderId: "352716504453",
-    appId: "1:352716504453:web:8f05dac31503760c3318ec",
-    measurementId: "G-W17171LH38"
+    apiKey: "AIzaSyDHmz13oKOWcr0UcIshrik2CZ9lUhSeE2E",
+    authDomain: "demopatient-76187.firebaseapp.com",
+    databaseURL: "https://demopatient-76187.firebaseio.com",
+    projectId: "demopatient-76187",
+    storageBucket: "demopatient-76187.appspot.com",
+    messagingSenderId: "155455111318",
+    appId: "1:155455111318:web:af965638f030f8808982b7",
+    measurementId: "G-0Y555DQ8T5"
   }
 };
 

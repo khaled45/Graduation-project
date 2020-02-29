@@ -9,7 +9,6 @@ import { doctorService } from '../services/doctor.service';
 export class WelcomeComponent implements OnInit {
 
   images;
-  multipleImages = [];
   username: any
   password: any
   imageprofile: any

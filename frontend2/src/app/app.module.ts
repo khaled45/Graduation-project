@@ -26,7 +26,14 @@ import { TourismComponent } from './tourism/tourism.component';
 import { TourProfileComponent } from './tour-profile/tour-profile.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { UploadPhotoComponent } from './upload-photo/upload-photo.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
+import { environment } from '../environments/environment';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
+import * as firebase from 'firebase';
+firebase.initializeApp(environment.firebaseConfig);
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +48,7 @@ import { MatIconModule } from '@angular/material/icon';
     DsigninComponent,
     TourismComponent,
     TourProfileComponent,
+    UploadPhotoComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +68,6 @@ import { MatIconModule } from '@angular/material/icon';
       { path: '**', redirectTo: 'home' },
 
     ]),
-
     HttpClientModule,
     MatCardModule,
     BrowserAnimationsModule,
@@ -73,9 +80,19 @@ import { MatIconModule } from '@angular/material/icon';
     MatExpansionModule,
     MatDialogModule,
     MatIconModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireStorageModule,
+    
+
+
 
   ],
-  providers: [],
+
+  providers: [
+    
+  ],
+
   bootstrap: [AppComponent],
   entryComponents: [TreatmentPlanComponent]
 })
