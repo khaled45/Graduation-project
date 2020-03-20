@@ -11,11 +11,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class SignupComponent implements OnInit {
 
 
-  constructor(public mydoctorService: doctorService, public myRouter: Router, private myFormBuilder: FormBuilder) { }
+  constructor(public mydoctorService: doctorService, public myRouter: Router, private myFormBuilder: FormBuilder, ) { }
 
   ngOnInit() {
   }
 
+  
   public questions: any[] = [{
     question: '',
   }];
@@ -37,7 +38,7 @@ export class SignupComponent implements OnInit {
 
         if (resp.message == "success") {
           debugger
-          this.myRouter.navigate(['/dashboard', resp.data._id])
+          this.myRouter.navigate(['/'])
         } else {
           alert('response error')
         }

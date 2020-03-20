@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -26,6 +27,7 @@ import { TourismComponent } from './tourism/tourism.component';
 import { TourProfileComponent } from './tour-profile/tour-profile.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 import { UploadPhotoComponent } from './upload-photo/upload-photo.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
@@ -33,6 +35,7 @@ import { environment } from '../environments/environment';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import * as firebase from 'firebase';
+import { MessagesComponent } from './messages/messages.component';
 firebase.initializeApp(environment.firebaseConfig);
 @NgModule({
   declarations: [
@@ -49,6 +52,7 @@ firebase.initializeApp(environment.firebaseConfig);
     TourismComponent,
     TourProfileComponent,
     UploadPhotoComponent,
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +75,7 @@ firebase.initializeApp(environment.firebaseConfig);
     HttpClientModule,
     MatCardModule,
     BrowserAnimationsModule,
+    NgbModule,
     MatInputModule,
     MatGridListModule,
     FormsModule,
@@ -80,17 +85,18 @@ firebase.initializeApp(environment.firebaseConfig);
     MatExpansionModule,
     MatDialogModule,
     MatIconModule,
+    MatMenuModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireStorageModule,
-    
+
 
 
 
   ],
 
   providers: [
-    
+
   ],
 
   bootstrap: [AppComponent],

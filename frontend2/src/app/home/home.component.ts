@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
   constructor(public MydoctorService: doctorService) { }
 
   DData: any
-
+  
   ngOnInit() {
     this.getDoctors()
   }
@@ -20,6 +20,5 @@ export class HomeComponent implements OnInit {
       this.DData = resp.data
     }))
   }
-
 
 }

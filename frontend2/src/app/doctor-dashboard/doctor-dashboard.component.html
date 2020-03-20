@@ -1,8 +1,21 @@
-<div class="media">
-    <div class="media-body">
-        <h4 class="mt-0">Name : {{DData.name}}</h4>
-        <h5 class="mt-0">username : {{DData.username}}</h5>
-        <h5 class="mt-0">location : {{DData.location}}</h5>
-
-    </div>
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" [src]=imageURL alt="Card image cap">
+    <h4 class="mt-0">Name : {{DData.name}}</h4>
+    <h5 class="mt-0">username : {{DData.username}}</h5>
+    <h5 class="mt-0">location : {{DData.location}}</h5>
 </div>
+
+<div style="text-align: center">
+    <h2> Upload your Avater</h2>
+    <form>
+        <div>
+            <input type="file" name="image" (change)="selectImage($event)" />
+        </div>
+        <br>
+        <div>
+            <button type="submit" (click)="onSubmit()">Upload</button>
+        </div>
+    </form>
+</div>
+
+<!-- <button mat-raised-button color="accent" (click)="getDoctorProfile()">   getDoctorProfile</button> -->

@@ -1,13 +1,13 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
 
             <div class="container text-center my-5 py-5">
                 <button mat-raised-button color="primary" [routerLink]="['/home']">Find Doctors </button>
             </div>
 
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
 
             <div class="container text-center my-5 py-5">
                 <button mat-raised-button color="primary" [routerLink]="['/DsignUp']">signUP as Doctors </button>
@@ -15,7 +15,7 @@
 
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-2">
 
             <div class="container text-center my-5 py-5">
                 <button mat-raised-button color="primary" [routerLink]="['/DsignIn']">login as Doctors </button>
@@ -23,10 +23,18 @@
 
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-2">
 
             <div class="container text-center my-5 py-5">
-                <app-upload-photo></app-upload-photo>
+                <button mat-raised-button color="primary" [routerLink]="['/PsignUp']">SginUp as patient </button>
+            </div>
+
+        </div>
+
+        <div class="col-md-2">
+
+            <div class="container text-center my-5 py-5">
+                <button mat-raised-button color="primary" [routerLink]="['/PsignIn']">Login as patient </button>
             </div>
 
         </div>
@@ -40,24 +48,3 @@
 
 
 
-
-<!-- <input type='file' (change)="onselectedfile($event)" />
-<button mat-raised-button color="primary" (click)='upload()'> Upload image</button> -->
-
-
-
-<!-- <div style="text-align: center">
-    <form>
-        <div>
-            <input type="file" name="image" (change)="selectImage($event)" />
-        </div>
-        <br>
-        <div>
-            <button type="submit" (click)="onSubmit()">Upload</button>
-        </div>
-    </form>
-</div> -->
-
-
-<!-- <button (click)="getimageprofile()">show</button>
-<img [src]="imageprofile"> -->

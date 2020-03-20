@@ -1,22 +1,7 @@
 var mongoose = require('mongoose'),
     doctorModel = require('../models/doctorModel'),
-    patientModel = require('../models/patientModel'),
-    multer = require('multer')
-path = require('path')
+    patientModel = require('../models/patientModel')
 
-// Multer File upload settings
-
-const storage = multer.diskStorage({
-    destination: './uploads/',
-    filename: function (req, file, cb) {
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-    }
-});
-
-
-const upload = multer({ storage: storage })
-
-//let upload = multer({ dest: 'uploads/' })
 
 
 
@@ -110,39 +95,33 @@ function doctorAPI(app) {
     })
 
 
-    app.post('/uploadDImage', upload.single('file'), (req, res, next) => {
+    app.post("/uploadDImage", (req, resp) => {
 
         const { _id } = req.session.user
-        const file = req.file;
-        if (!file) {
-            const error = new Error('No File')
-            error.httpStatusCode = 400
-            return next(error)
-        }
-        doctorModel.findOne({ _id }).exec((err, Ddata) => {
+        debugger
+        const { imageURL } = req.body
+        doctorModel.findOne({ _id }).exec((err, DData) => {
+            debugger
+            DData.avatar =  imageURL
+            DData.save((err, data) => {
+                err ? resp.json({ message: 'error' }) : resp.json({ message: 'success', data })
 
-            Ddata.avatar.push({
-                fileDest: `uploads/${file.filename}`,
-                filename: file.filename,
-                originalname: file.originalname
-            });
-            Ddata.save((err, data) => {
-                err ? res.json({ message: 'error' }) : res.json({ message: 'saved', data })
-            });
-        });
+            })
+        })
 
-    })
-
+    });
 
     app.get('/getDImageProfile', (req, resp) => {
         const { _id } = req.session.user
-        
+
         doctorModel.findOne({ _id }).exec((err, data) => {
-            const imageProfile = data.avatar[0].fileDest
-            err ? resp.json({ message: 'error' }) : resp.json({ message: 'success', imageProfile })
+            const avatar = data.avatar
+            err ? resp.json({ message: 'error' }) : resp.json({ message: 'success', avatar })
 
         })
     })
+
+
 
 }
 

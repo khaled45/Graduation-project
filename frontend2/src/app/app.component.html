@@ -7,10 +7,43 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link" [routerLink]="['/home']" routerLinkActive="router-link-active" >Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" [routerLink]="['/home']" routerLinkActive="router-link-active">Home <span
+                        class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a (click)="onCreate()" ><i class="far fa-bell btn-primary my-2" style="cursor: pointer;"></i></a>
+                <a (click)="onCreate()"><i class="far fa-bell btn-primary my-2" style="cursor: pointer;"></i></a>
+            </li>
+
+            <li>
+                <div class="row">
+                    <div class="col">
+                        <div ngbDropdown class="d-inline-block">
+                            <button class="btn btn-primary" id="dropdownForm1" ngbDropdownToggle>Toggle
+                                dropdown</button>
+                            <div ngbDropdownMenu class="messages ">
+                                <div class="container">
+                                    <div class="row mx-auto sm-messages" >
+                                        <div class="d-inline p-2 px-3  text-white mx-auto notfi">
+                                            <i class="fas fa-bell px-2"></i> <button class="btn">Notifications (0)
+                                            </button>
+                                        </div>
+
+                                        <div class="d-inline p-2 px-3 text-white mx-auto inbox">
+                                            <i class="fas fa-comment px-2"></i> <button class="btn">Inbox
+                                                (0)</button>
+                                        </div>
+                                    </div>
+                                    <div class="row mx-auto">
+                                        <div class="col-md-12 message-data " >
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </li>
 
 

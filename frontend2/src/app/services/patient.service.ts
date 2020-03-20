@@ -14,7 +14,7 @@ export class patientService {
 
     signup(data) {
 
-        return this.myHttpClient.post('http://localhost:8085/patientsignup', data, { withCredentials: true })
+        return this.myHttpClient.post('http://localhost:8085/patientsignup', data)
     }
 
     signin(data) {

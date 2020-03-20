@@ -5,9 +5,8 @@ let patientModel = new mongoose.model('Patient', {
     name: String,
     username: { type: String, unique: true },
     password: String,
-    diagnoses_form: [],
-    doctorID: { type: mongoose.Schema.Types.ObjectId , ref: 'Doctor'},
-    image:String
+    avatar: String,
+    doctorID: { type: mongoose.Schema.Types.ObjectId, ref: 'Doctor' },
 })
 
 module.exports = patientModel 

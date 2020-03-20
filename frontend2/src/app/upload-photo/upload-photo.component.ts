@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UploadService } from '../services/UploadFiles.service';
 import { UploadModelModule } from '../upload-model/upload-model.module';
-import * as lodash from 'lodash'
+
 @Component({
   selector: 'app-upload-photo',
   templateUrl: './upload-photo.component.html',

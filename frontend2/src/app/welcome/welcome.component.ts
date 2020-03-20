@@ -26,26 +26,6 @@ export class WelcomeComponent implements OnInit {
     }
   }
 
-  onSubmit() {
-    const formData = new FormData();
-    formData.append('file', this.images);
-
-    this.mydoctorService.uploadDImage(formData).subscribe((resp) => {
-      console.log(resp)
-    })
-
-  }
-
-
-  getimageprofile() {
-    this.mydoctorService.getDImageProfile().subscribe((resp: any) => {
-      debugger
-      this.imageprofile = resp.imageProfile
-    })
-  }
-
-
-
   
 
 }
