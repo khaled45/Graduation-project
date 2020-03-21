@@ -26,6 +26,14 @@
         <div class="col-md-2">
 
             <div class="container text-center my-5 py-5">
+                <button mat-raised-button color="primary" (click)="logoutDoctor()" >Logout as Doctor </button>
+            </div>
+
+        </div>
+
+        <div class="col-md-2">
+
+            <div class="container text-center my-5 py-5">
                 <button mat-raised-button color="primary" [routerLink]="['/PsignUp']">SginUp as patient </button>
             </div>
 
@@ -39,6 +47,15 @@
 
         </div>
 
+        <div class="col-md-2">
+
+            <div class="container text-center my-5 py-5">
+                <button mat-raised-button color="primary" (click)="logoutPatient()">Logout as patient </button>
+            </div>
+
+        </div>
+
+        
     </div>
 
 </div>

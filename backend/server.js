@@ -13,6 +13,7 @@ var app = express()
 function authenticate(req, resp, next) {
     
     if (req.url === '/doctorsignup' || req.url === '/doctorsignin' || req.url === '/patientsignup' || req.url === '/patientsignin') {
+        
         next()
     } else {
         

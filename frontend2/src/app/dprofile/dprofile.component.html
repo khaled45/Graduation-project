@@ -1,5 +1,5 @@
 <div class="media">
-    <img src="" class="mr-3" alt="...">
+    <img src="{{DData.avatar}}" style="width: 200px;height: 200px ;" alt="...">
     <div class="media-body">
         <h4 class="mt-0">Name : {{DData.name}}</h4>
         <h5 class="mt-0">username : {{DData.username}}</h5>
@@ -21,14 +21,98 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body" *ngFor="let q of DoctorQST">
+            <!-- <div class="modal-body" *ngFor="let q of DoctorQST">
                 <h4>{{q}}</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" (click)='showModal = false'
-                    data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success">submit</button>
+
+            </div> -->
+            <div class=" mx-auto">
+                <div class="contaniner">
+                    <h5 class="text-center">The Reason You Visit Us</h5>
+                    <div class="row">
+                        <div class="col-6-md">
+
+                            <input type="checkbox" [(ngModel)]="cosmetics">
+                            <label>Cosmetics</label><br>
+
+                            <input type="checkbox" [(ngModel)]="ortho">
+                            <label>Ortho</label><br>
+
+                            <input type="checkbox" [(ngModel)]="scalling">
+                            <label>Scalling</label><br>
+
+                            <input type="checkbox" [(ngModel)]="rct">
+                            <label>R.C.T</label><br>
+
+                        </div>
+                        <div class="col-6-md">
+
+                            <input type="checkbox" [(ngModel)]="crownandbridge">
+                            <label>Crown & Bridges</label><br>
+
+                            <input type="checkbox" [(ngModel)]="operative">
+                            <label>Operative</label><br>
+
+                            <input type="checkbox" [(ngModel)]="pediatrics">
+                            <label>pediatrics</label><br>
+
+                            <input type="checkbox" [(ngModel)]="checkup">
+                            <label>Check Up</label><br>
+
+                        </div>
+                    </div>
+                    <h5 class="text-center">Medical History</h5>
+                    <div class="row">
+                        <div class="col-6-md">
+
+                            <input type="checkbox" [(ngModel)]="heartdisease">
+                            <label>Heart disease</label><br>
+
+                            <input type="checkbox" [(ngModel)]="heartdisease">
+                            <label>Heart disease</label><br>
+
+                            <input type="checkbox" [(ngModel)]="Hepatitis ">
+                            <label>Hepatitis </label><br>
+
+                            <input type="checkbox" [(ngModel)]="Diabetes">
+                            <label>Diabetes</label><br>
+
+                            <input type="checkbox" [(ngModel)]="bloodpressure">
+                            <label>Blood pressure</label><br>
+
+                            <input type="checkbox" [(ngModel)]="Bleedingtendency">
+                            <label>Bleeding tendency</label><br>
+
+                        </div>
+                        <div class="col-6-md">
+                            <input type="checkbox" [(ngModel)]="Allergy">
+                            <label>Allergy</label><br>
+
+                            <input type="checkbox" [(ngModel)]="Radiotheraby">
+                            <label>Radiotheraby</label><br>
+
+                            <input type="checkbox" [(ngModel)]="Rheumatic">
+                            <label>Rheumatic</label><br>
+
+                            <input type="checkbox" [(ngModel)]="Kindneydiseases">
+                            <label>Kindney diseases</label><br>
+
+                            <input type="checkbox" [(ngModel)]="Lactation">
+                            <label>Lactation</label><br>
+
+                            <input type="checkbox" [(ngModel)]="Pregnancy">
+                            <label>Pregnancy</label><br>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" (click)='showModal = false'
+                        data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success">submit</button>
+                </div>
             </div>
         </div>
     </div>
-</div>

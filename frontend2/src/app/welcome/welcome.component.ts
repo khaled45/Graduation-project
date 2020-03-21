@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { doctorService } from '../services/doctor.service';
+import { patientService } from '../services/patient.service';
 
 @Component({
   selector: 'app-welcome',
@@ -12,7 +13,7 @@ export class WelcomeComponent implements OnInit {
   username: any
   password: any
   imageprofile: any
-  constructor(private mydoctorService: doctorService, ) { }
+  constructor(private mydoctorService: doctorService, private mypatientService: patientService) { }
 
   ngOnInit() {
 
@@ -26,6 +27,19 @@ export class WelcomeComponent implements OnInit {
     }
   }
 
-  
+
+
+  logoutPatient() {
+    this.mypatientService.signout().subscribe((resp: any) => {
+      window.alert(resp.message)
+    })
+  }
+
+  logoutDoctor() {
+    this.mydoctorService.signout().subscribe((resp: any) => {
+      window.alert(resp.message)
+    })
+  }
+
 
 }

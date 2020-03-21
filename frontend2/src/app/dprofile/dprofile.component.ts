@@ -15,6 +15,9 @@ export class DProfileComponent implements OnInit {
     answer: '',
   }];
 
+
+  cosmetics: any
+
   DId: any = this.MyActivatedRoute.snapshot.paramMap.get('id')
   DData: any = {}
   DoctorQST: any = []
@@ -22,6 +25,12 @@ export class DProfileComponent implements OnInit {
 
   ngOnInit() {
     this.getDoctorProfile()
+  }
+
+
+  medical(){
+    
+    console.log(this.cosmetics)
   }
 
 
